@@ -1,4 +1,43 @@
-# brat rapid annotation tool (brat) #
+# brat rapid annotation tool (brat) / Windows Compatibility#
+
+This is fork of the main brat project, [which can be found here](https://github.com/nlplab/brat). This project is for Windows compatibility and has been tested on Windows 7 with Python 3.7 minimally. Use at your own risk.
+
+To use:
+
+1. In the command prompt  
+
+    ``` sh
+    cd /path/to/brat
+    cp config_template.py config.py
+    mkdir data
+    mkdir work
+    ```
+
+2. Open config.py
+    * Enter any email address on line 25:  
+      `ADMIN_CONTACT_EMAIL='someone@someplace.yar'`
+    * Comment lines 33 through 35:  
+      `# BASE_DIR = CHANGE_ME`  
+      `# DATA_DIR = CHANGE_ME`  
+      `# WORK_DIR = CHANGE_ME`
+    * Uncomment lines 43 through 45:  
+      `BASE_DIR = dirname(__file__)`  
+      `DATA_DIR = join(BASE_DIR, 'data')`  
+      `WORK_DIR = join(BASE_DIR, 'work')`
+    * Add a `username`: `password` key/value pair to the `USER_PASSWORD` dictionary on line 56.
+    * Save file.
+3. In the command prompt from the brat directory, execute `python standalone.py` and you'll see the following:  
+
+    ``` sh
+    Warning: could not determine user. Note that the brat standalone
+    server is experimental and should not be run as administrator.
+
+    Serving brat at http://127.0.0.1:8001
+    ```
+
+4. Copy the link and enter it into the browser. Once the browser has loaded, you can login and then you should be able to edit annotations.
+
+The full functionality of brat has not been tested, so there may be some outstanding issues with Windows integration that need to be resolved. Please let me know if you run into anything.
 
 ## Documentation ##
 
