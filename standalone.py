@@ -13,7 +13,7 @@ import sys
 from cgi import FieldStorage
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 from posixpath import normpath
-from socketserver import ForkingMixIn
+from socketserver import ThreadingMixIn
 from urllib.parse import unquote
 
 
@@ -23,7 +23,7 @@ from server import serve
 
 
 _VERBOSE_HANDLER = False
-_DEFAULT_SERVER_ADDR = ''
+_DEFAULT_SERVER_ADDR = '127.0.0.1'
 _DEFAULT_SERVER_PORT = 8001
 
 _PERMISSIONS = """
@@ -250,7 +250,7 @@ class BratHTTPRequestHandler(SimpleHTTPRequestHandler):
             SimpleHTTPRequestHandler.do_HEAD(self)
 
 
-class BratServer(ForkingMixIn, HTTPServer):
+class BratServer(ThreadingMixIn, HTTPServer):
     def __init__(self, server_address):
         HTTPServer.__init__(self, server_address, BratHTTPRequestHandler)
 
