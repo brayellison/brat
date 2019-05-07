@@ -1,6 +1,6 @@
 # brat rapid annotation tool (brat) / Windows Compatibility#
 
-This is fork of the main brat project, [which can be found here](https://github.com/nlplab/brat). This project is for Windows compatibility and has been tested on Windows 7 with Python 3.7 minimally. Use at your own risk.
+This is a fork of the main brat project, [which can be found here](https://github.com/nlplab/brat). This project is for Windows compatibility and has been tested on Windows 7 with Python 3.7 minimally. Use at your own risk.
 
 To use:
 
